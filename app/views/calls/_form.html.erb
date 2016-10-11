@@ -33,7 +33,7 @@
 		</tr>
 		<tr>
 			<th><%= f.label :appointment_date %></th>
-			<td><%= f.date_select :appt_date %></td>
+			<td><%= f.text_field :appt_date %></td>
 			<th><%= f.label :appointment_time %></th>
 			<td><%= f.collection_select :appt_time, Appointment.all, :time, :time %></td>
 		</tr>

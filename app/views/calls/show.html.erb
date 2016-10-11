@@ -2,16 +2,26 @@
 	<h1 class="title">
 		<%= @call.name %>
 	</h1>
-	<b>Phone: </b> <%= @call.phone %> | 
-	<b>Email: </b> <%= @call.email %>
-	<br>
-	<b>Address: </b> <%= @call.address %> <%= @call.city %> GA <%= @call.zip %>
-	<br>
-	<b>Appointent Date: </b> <%= @call.appt_date %>
-	<b>Appointent Time: </b> <%= @call.appt_time %>
-	<p class="">
+		<p class="date">
 		Submitted <%= time_ago_in_words(@call.created_at) %> ago | 
 	<%= link_to "Edit", edit_call_path(@call) %> | 
 	<%= link_to "Delete", call_path(@call), method: :delete, data: { confirm: "Are you sure?"} %>
 	</p>
+	<p class="body">
+		<b>Phone: </b> <%= @call.phone %> | 
+		<b>Email: </b> <%= @call.email %>
+		<br>
+		<b>Address: </b> <%= @call.address %> <%= @call.city %> GA <%= @call.zip %>
+		<br>
+		<b>Appointent Date: </b> <%= @call.appt_date %>
+		<b>Appointent Time: </b> <%= @call.appt_time %>
+	</p>
+	<div id="comments">
+		<h2><%= @call.comments.count %> Comments </h2>
+		<%= render @call.comments %>
+		<h3> Add Comment: </h3>
+		<%= render "comments/form" %>
+	</div>
+
+
 </div>
