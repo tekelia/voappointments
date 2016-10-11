@@ -22,6 +22,28 @@ class CallsController < ApplicationController
 		end
 	end	
 
+	def edit
+		@call = Call.find(params[:id])
+
+	end
+
+	def update
+		@call = Call.find(params[:id])
+
+		if @call.update(params[:call].permit(:name, :phone, :email, :address, :city, :zip,:appt_date,:appt_time))
+			redirect_to @call
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@call = Call.find(params[:id])
+		@call.destroy
+		
+		redirect_to root_path
+	end
+
 	private
 
 		def call_params

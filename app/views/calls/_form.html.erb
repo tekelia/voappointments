@@ -1,0 +1,45 @@
+<%= form_for @call do |f| %>
+	<% if @call.errors.any? %>
+	<div id="errors">
+		<h2><%= pluralize(@call.errors.count, "error") %> stopped this call from saving. </h2>
+		<ul>
+			<% @call.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+				<% end %>
+		</ul>
+	</div>
+	<% end %>
+
+	<table class="key_table">
+		<tr>
+			<th><%= f.label :name %></th>
+			<td colspan='3'><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :phone %></th>
+			<td><%= f.text_field :phone %></td>
+			<th><%= f.label :email %></th>
+			<td><%= f.text_field :email %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :address %></th>
+			<td colspan='3'><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :city %></th>
+			<td><%= f.text_field :city %></td>
+			<th><%= f.label :zip %></th>
+			<td><%= f.text_field :zip %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :appointment_date %></th>
+			<td><%= f.date_select :appt_date %></td>
+			<th><%= f.label :appointment_time %></th>
+			<td><%= f.collection_select :appt_time, Appointment.all, :time, :time %></td>
+		</tr>
+	</table>
+		<p>
+			<%= f.submit %>
+		</p>
+
+	<% end %>
