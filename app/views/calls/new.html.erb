@@ -1,0 +1,19 @@
+<h1> Make Something </h1>
+
+<%= form_for :call, url: calls_path do |f| %>
+	<p> 
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :phone %>
+		<%= f.text_field :phone %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+
