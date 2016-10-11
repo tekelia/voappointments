@@ -1,5 +1,13 @@
-<% @calls.each do |call| %>
-	<div class="post_wrapper">
-	<h2 class="title"><%= link_to call.name, call %> </h2>
+	<div id="page_wrapper">
+		<table class="log_table" border='2'>
+			<tr><th>Name</th><th>Phone</th>
+		<% @calls.each do |call| %>
+			<tr><td>
+			<%= link_to call.name, call %>
+		</td><td>
+			<%= call.phone %>
+		</td></tr>
+			
+		<% end %>
+		</table>
 	</div>
-<% end %>

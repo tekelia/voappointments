@@ -1,19 +1,38 @@
-<h1> Make Something </h1>
+<div id="page_wrapper">
+	<h1> Post Call</h1>
 
-<%= form_for :call, url: calls_path do |f| %>
-	<p> 
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</p>
+	<%= form_for :call, url: calls_path do |f| %>
+	<table class="key_table">
+		<tr>
+			<th><%= f.label :name %></th>
+			<td colspan='3'><%= f.text_field :name %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :phone %></th>
+			<td><%= f.text_field :phone %></td>
+			<th><%= f.label :email %></th>
+			<td><%= f.text_field :email %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :address %></th>
+			<td colspan='3'><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :city %></th>
+			<td><%= f.text_field :city %></td>
+			<th><%= f.label :zip %></th>
+			<td><%= f.text_field :zip %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :appointment_date %></th>
+			<td><%= f.date_select :appt_date %></td>
+			<th><%= f.label :appointment_time %></th>
+			<td><%= f.collection_select :appt_time, Appointment.all, :time, :time %></td>
+		</tr>
+	</table>
+		<p>
+			<%= f.submit %>
+		</p>
 
-	<p>
-		<%= f.label :phone %>
-		<%= f.text_field :phone %>
-	</p>
-
-	<p>
-		<%= f.submit %>
-	</p>
-
-<% end %>
-
+	<% end %>
+</div>

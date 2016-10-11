@@ -1,8 +1,15 @@
-<h1 class="title">
-	<%= @call.name %>
-</h1>
-
-<p class="date">
-	Submitted <%= time_ago_in_words(@call.created_at) %> ago
-</p>
-
+<div id="post_content">
+	<h1 class="title">
+		<%= @call.name %>
+	</h1>
+	<b>Phone: </b> <%= @call.phone %> | 
+	<b>Email: </b> <%= @call.email %>
+	<br>
+	<b>Address: </b> <%= @call.address %> <%= @call.city %> GA <%= @call.zip %>
+	<br>
+	<b>Appointent Date: </b> <%= @call.appt_date %>
+	<b>Appointent Time: </b> <%= @call.appt_time %>
+	<p class="">
+		Submitted <%= time_ago_in_words(@call.created_at) %> ago
+	</p>
+</div>
