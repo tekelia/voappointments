@@ -9,13 +9,17 @@ class CallsController < ApplicationController
 	end
 
 	def new
+		@call = Call.new
 	end
 
 	def create
 		@call = Call.new(call_params)
-		@call.save 
 		
-		redirect_to @call
+		if @call.save 
+			redirect_to @call
+		else
+			render 'new'
+		end
 	end	
 
 	private

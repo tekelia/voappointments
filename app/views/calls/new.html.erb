@@ -2,6 +2,17 @@
 	<h1> Post Call</h1>
 
 	<%= form_for :call, url: calls_path do |f| %>
+	<% if @call.errors.any? %>
+	<div id="errors">
+		<h2><%= pluralize(@call.errors.count, "error") %> stopped this call from saving. </h2>
+		<ul>
+			<% @call.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+				<% end %>
+		</ul>
+	</div>
+	<% end %>
+
 	<table class="key_table">
 		<tr>
 			<th><%= f.label :name %></th>
